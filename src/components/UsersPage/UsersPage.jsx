@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 
 import { useEffect, useState } from "react";
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const UsersPage = () => {
   const loadedUsers = useLoaderData();
-  console.log(loadedUsers);
+  // console.log(loadedUsers);
   const [users, setUsers] = useState(loadedUsers);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const UsersPage = () => {
 
   const handleDelete = (id) => {
     // const stringId = id.toString();
-    console.log(id);
+    // console.log(id);
     fetch(`http://localhost:3000/users/${id}`, {
       method: "DELETE",
     })
@@ -66,6 +66,9 @@ const UsersPage = () => {
             >
               <MdDelete /> মুছে ফেলো...
             </button>
+            <Link to={`/users/${user._id}`}>
+              <MdEdit /> এডিট করো...
+            </Link>
           </div>
         );
       })}
