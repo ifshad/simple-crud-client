@@ -18,8 +18,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/users/:id",
-    element: <EditPage />,
-    loader: (params) => fetch(`http://localhost:3000/users/${params.id}`),
+    element: <EditPage />, 
+    loader: ({params}) => fetch(`http://localhost:3000/users/${params.id}`),
   },
 ]);
 
