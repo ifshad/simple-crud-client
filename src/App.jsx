@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./App.css";
+import Swal from 'sweetalert2'
 
 function App() {
 
@@ -20,7 +21,14 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        alert("ইউজার তৈরি হয়েছে");
+        // alert("ইউজার তৈরি হয়েছে");
+        if(data.insertedId)
+          Swal.fire({
+            title: 'শুভেচ্ছা!',
+            text: 'ইউজার তৈরি হয়েছে',
+            icon: 'success',
+            confirmButtonText: 'ওকে'
+          })
       });
       e.target.reset();
   };
